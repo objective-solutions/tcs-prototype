@@ -1,0 +1,33 @@
+﻿EPIC 1: ORGANIZATION & SESSION MANAGEMENT
+Context: Multiple organizations (local authorities, schools, corporations) purchase blocks of therapy sessions that need to be managed, allocated, and tracked within the system.
+User Story 1.1: Create Organization Accounts
+As a TCS Coordinator
+I want to create and configure new organization accounts with an initial number of therapy sessions
+So that organizations can start referring young people for therapy sessions
+Acceptance Criteria:
+The system allows manual input of organization details and total sessions purchased
+The system displays real-time available session balances for each organization
+Organizations become active in the system immediately after setup
+The platform allows for specific branding requirements (TCS branded initially, with future white-label capability)
+Assumptions:
+Organizations can have different roles in the system - some will be purchasers of sessions, others will be referrers only
+Organization setup will be completed by TCS staff, not by the organizations themselves
+Purchasing happens outside the system, but the system must track available sessions
+The platform will need to support co-branding/white-labeling for corporate and local authority customers
+Organizations will need different access levels depending on their role (purchaser vs. referrer)
+User Story 1.2: Session Ringfencing
+As a TCS Coordinator or Referrer
+I want the system to automatically reserve 12 sessions when a new young person is referred
+So that each young person has a guaranteed allocation for their therapy journey
+Acceptance Criteria:
+The system verifies the organization has at least 12 available sessions before allowing a referral
+If insufficient sessions remain, the system blocks the referral and notifies the userappropriate staff
+Upon successful referral, 12 sessions are marked as "reserved" for that young person
+Unused sessions automatically return to the organization's available pool if therapy ends early
+The system maintains an audit log of all session allocations and returns
+Assumptions:
+The 12-session allocation is the standard package for all young people as specified in the RFQ
+Ringfencing happens immediately at referral time, before consent or assessment
+Organizations need visibility on their available session pool after ringfencing
+The system must track and distinguish between used, reserved, and available sessions
+Automatic release of unused sessions must be triggered by explicit therapy closure, not just inactivity

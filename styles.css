@@ -1,0 +1,334 @@
+:root {
+    /* Updated TCS Brand Colors from website */
+    --tcs-purple: #2E008B;
+    --tcs-yellow: #FFE000;
+    --tcs-black: #000000;
+    --tcs-white: #FFFFFF;
+    --tcs-gray-light: #F5F5F5;
+    --tcs-gray: #666666;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--tcs-black);
+    background-color: var(--tcs-gray-light);
+}
+
+.main-header {
+    background-color: var(--tcs-black);
+    color: var(--tcs-white);
+    padding: var(--spacing-md);
+    border-bottom: 4px solid var(--tcs-yellow);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-md);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.panel {
+    background: var(--tcs-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.panel-header {
+    background-color: var(--tcs-black);
+    color: var(--tcs-white);
+    padding: var(--spacing-md);
+    border-bottom: 4px solid var(--tcs-yellow);
+}
+
+.panel-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.panel-content {
+    padding: var(--spacing-lg);
+}
+
+.tcs-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--tcs-gray);
+}
+
+.form-group input,
+.form-group select {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--tcs-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--tcs-yellow);
+    color: var(--tcs-black);
+    font-weight: bold;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--tcs-purple);
+    color: var(--tcs-white);
+}
+
+.btn-secondary {
+    background-color: var(--tcs-gray-light);
+    color: var(--tcs-purple);
+    border: 1px solid var(--tcs-purple);
+}
+
+.btn-secondary:hover {
+    background-color: var(--tcs-purple);
+    color: var(--tcs-white);
+}
+
+.session-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-card {
+    background: var(--tcs-gray-light);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: var(--tcs-gray);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--tcs-purple);
+}
+
+.form-info {
+    background-color: var(--tcs-gray-light);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--tcs-gray);
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 4px;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.notification.success {
+    background-color: var(--tcs-yellow);
+    color: var(--tcs-black);
+    border-left: 4px solid var(--tcs-purple);
+}
+
+.notification.error {
+    background-color: #FF3B30;
+    color: var(--tcs-white);
+    border-left: 4px solid var(--tcs-black);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notification-message {
+    font-weight: 500;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-open {
+    opacity: 1;
+}
+
+.modal-closing {
+    opacity: 0;
+}
+
+.modal-content {
+    background-color: var(--tcs-white);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-open .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    background-color: var(--tcs-black);
+    color: var(--tcs-white);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid var(--tcs-yellow);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--tcs-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--tcs-yellow);
+}
+
+.modal-body {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    max-height: calc(90vh - 100px);
+}
+
+/* Audit log entry styles */
+.log-entry {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--tcs-gray-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.log-timestamp {
+    color: var(--tcs-gray);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.log-action {
+    color: var(--tcs-purple);
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs);
+}
+
+.log-details {
+    background-color: var(--tcs-gray-light);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.log-details div {
+    margin-bottom: var(--spacing-xs);
+}
+
+.log-details div:last-child {
+    margin-bottom: 0;
+} 
