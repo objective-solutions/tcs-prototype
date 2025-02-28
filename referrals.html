@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Management - TCS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
+            <h1>Referral Management</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="organizations.html">Organizations</a></li>
+                <li><a href="sessions.html">Sessions</a></li>
+                <li><a href="referrals.html" class="active">Referrals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- New Referral Panel -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>New Referral</h2>
+            </div>
+            <div class="panel-content">
+                <form id="referralForm" class="tcs-form">
+                    <div class="form-group">
+                        <label for="orgSelect">Referring Organization</label>
+                        <select id="orgSelect" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ypName">Young Person's Name</label>
+                        <input type="text" id="ypName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ypDob">Date of Birth</label>
+                        <input type="date" id="ypDob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ypEmail">Contact Email</label>
+                        <input type="email" id="ypEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ypPhone">Contact Phone</label>
+                        <input type="tel" id="ypPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredContact">Preferred Contact Method</label>
+                        <select id="preferredContact" required>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="sms">SMS</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduleConstraints">Scheduling Constraints</label>
+                        <textarea id="scheduleConstraints" rows="3"></textarea>
+                    </div>
+                    <div class="form-info">
+                        <p>This referral will automatically reserve 12 sessions</p>
+                        <p>By submitting this form, you confirm you have permission to share the young person's details</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Referral</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Active Referrals Panel -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Active Referrals</h2>
+            </div>
+            <div class="panel-content">
+                <div class="referral-filters">
+                    <select id="statusFilter">
+                        <option value="all">All Statuses</option>
+                        <option value="pending">Pending Consent</option>
+                        <option value="consented">Consented</option>
+                        <option value="scheduled">Scheduled</option>
+                    </select>
+                </div>
+                <div id="referralsList" class="referrals-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Consent Review Modal Template -->
+    <template id="consentModalTemplate">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Therapy Consent Form</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="consent-form">
+                    <h3>Consent Details</h3>
+                    <div class="consent-section">
+                        <h4>Service Overview</h4>
+                        <p>You are being offered 12 therapy sessions through The Children's Society...</p>
+                    </div>
+                    <div class="consent-section">
+                        <h4>Data Protection</h4>
+                        <p>Your personal information will be handled securely...</p>
+                    </div>
+                    <div class="consent-section">
+                        <h4>Your Rights</h4>
+                        <p>You have the right to withdraw consent at any time...</p>
+                    </div>
+                    <div class="consent-actions">
+                        <button class="btn btn-secondary" data-action="decline">Decline</button>
+                        <button class="btn btn-primary" data-action="consent">I Consent</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="scripts/shared/state.js"></script>
+    <script src="scripts/referrals.js"></script>
+</body>
+</html> 

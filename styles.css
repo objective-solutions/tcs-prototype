@@ -31,7 +31,7 @@ body {
 .main-header {
     background-color: var(--tcs-black);
     color: var(--tcs-white);
-    padding: var(--spacing-md);
+    padding: 0;
     border-bottom: 4px solid var(--tcs-yellow);
 }
 
@@ -41,6 +41,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
+    padding: var(--spacing-md);
 }
 
 .logo {
@@ -56,8 +57,9 @@ body {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md);
 }
 
 .panel {
@@ -181,22 +183,20 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 1rem;
+    padding: var(--spacing-md);
     border-radius: 4px;
-    animation: slideIn 0.3s ease-out;
+    background: var(--tcs-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     z-index: 1000;
+    animation: slideIn 0.3s ease;
 }
 
 .notification.success {
-    background-color: var(--tcs-yellow);
-    color: var(--tcs-black);
-    border-left: 4px solid var(--tcs-purple);
+    border-left: 4px solid #28a745;
 }
 
 .notification.error {
-    background-color: #FF3B30;
-    color: var(--tcs-white);
-    border-left: 4px solid var(--tcs-black);
+    border-left: 4px solid #dc3545;
 }
 
 @keyframes slideIn {
@@ -213,7 +213,7 @@ body {
 .notification-content {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
 }
 
 .notification-message {
@@ -331,4 +331,348 @@ body {
 
 .log-details div:last-child {
     margin-bottom: 0;
+}
+
+/* Navigation styles */
+.main-nav {
+    background-color: var(--tcs-white);
+    border-top: 1px solid var(--tcs-gray-light);
+    padding: 0 var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: 0;
+}
+
+.main-nav li {
+    position: relative;
+}
+
+.main-nav a {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-sm);
+    color: var(--tcs-black);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--tcs-yellow);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+.main-nav a.active {
+    color: var(--tcs-purple);
+    font-weight: 600;
+}
+
+/* Feature cards on home page */
+.feature-card {
+    background: var(--tcs-white);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    display: block;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--tcs-yellow);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover::after {
+    transform: scaleX(1);
+}
+
+.feature-content {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.feature-content h3 {
+    color: var(--tcs-purple);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.feature-content p {
+    color: var(--tcs-gray);
+    line-height: 1.5;
+}
+
+/* Welcome section styles */
+.welcome-section {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+}
+
+.welcome-section h2 {
+    color: var(--tcs-purple);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.welcome-section p {
+    color: var(--tcs-gray);
+    font-size: 1.1rem;
+}
+
+/* Add to existing styles.css */
+
+.organization-card {
+    background: var(--tcs-white);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.organization-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.organization-header h3 {
+    color: var(--tcs-purple);
+    margin: 0;
+}
+
+.org-type {
+    background-color: var(--tcs-yellow);
+    color: var(--tcs-black);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.organization-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-label {
+    color: var(--tcs-gray);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--tcs-black);
+}
+
+/* Audit Log Styles */
+.audit-log-modal .modal-content {
+    max-width: 900px;
+}
+
+.audit-log-date {
+    margin-bottom: var(--spacing-lg);
+}
+
+.audit-log-date h3 {
+    color: var(--tcs-purple);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--tcs-yellow);
+}
+
+.audit-log-entries {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.audit-log-entry {
+    background: var(--tcs-gray-light);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-md);
+    align-items: start;
+}
+
+.log-time {
+    color: var(--tcs-gray);
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.log-action {
+    color: var(--tcs-purple);
+    font-weight: 600;
+    grid-column: 2;
+}
+
+.log-details {
+    grid-column: 2;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.log-details strong {
+    color: var(--tcs-black);
+}
+
+/* Referral Cards */
+.referral-card {
+    background: var(--tcs-white);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--tcs-gray);
+}
+
+.referral-card.pending {
+    border-left-color: var(--tcs-yellow);
+}
+
+.referral-card.consented {
+    border-left-color: var(--tcs-purple);
+}
+
+.referral-card.scheduled {
+    border-left-color: #28a745;
+}
+
+.referral-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.referral-header h3 {
+    color: var(--tcs-purple);
+    margin: 0;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.pending .status-badge {
+    background-color: var(--tcs-yellow);
+    color: var(--tcs-black);
+}
+
+.consented .status-badge {
+    background-color: var(--tcs-purple);
+    color: var(--tcs-white);
+}
+
+.scheduled .status-badge {
+    background-color: #28a745;
+    color: var(--tcs-white);
+}
+
+.referral-details {
+    margin-bottom: var(--spacing-md);
+}
+
+.referral-details p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.referral-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    background: var(--tcs-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    border-left: 4px solid #28a745;
+}
+
+.notification.error {
+    border-left: 4px solid #dc3545;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.no-data {
+    text-align: center;
+    color: var(--tcs-gray);
+    padding: var(--spacing-lg);
 } 

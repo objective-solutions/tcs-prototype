@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Management - TCS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
+            <h1>Session Management</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="organizations.html">Organizations</a></li>
+                <li><a href="sessions.html" class="active">Sessions</a></li>
+                <li><a href="referrals.html">Referrals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Session Overview</h2>
+            </div>
+            <div class="panel-content">
+                <div class="session-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Active Sessions</span>
+                        <span id="totalActiveSessions" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Reserved Sessions</span>
+                        <span id="reservedSessions" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="session-actions">
+                    <button id="viewAuditLog" class="btn btn-secondary">View Audit Log</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/shared/state.js"></script>
+    <script src="scripts/sessions.js"></script>
+</body>
+</html> 

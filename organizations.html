@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Management - TCS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
+            <h1>Organization Management</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="organizations.html" class="active">Organizations</a></li>
+                <li><a href="sessions.html">Sessions</a></li>
+                <li><a href="referrals.html">Referrals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Create Organization</h2>
+            </div>
+            <div class="panel-content">
+                <form id="orgForm" class="tcs-form">
+                    <div class="form-group">
+                        <label for="orgName">Organization Name</label>
+                        <input type="text" id="orgName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orgType">Organization Type</label>
+                        <select id="orgType" required>
+                            <option value="purchaser">Session Purchaser</option>
+                            <option value="referrer">Referrer Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sessionCount">Total Sessions Purchased</label>
+                        <input type="number" id="sessionCount" min="12" step="12" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Create Organization</button>
+                    </div>
+                </form>
+
+                <div class="organizations-list">
+                    <h3>Active Organizations</h3>
+                    <div id="orgListContent" class="list-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="scripts/shared/state.js"></script>
+    <script src="scripts/organizations.js"></script>
+</body>
+</html> 

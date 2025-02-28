@@ -1,0 +1,46 @@
+EPIC 2: REFERRAL PROCESS & CONSENT
+Context: The referral process requires capturing the young person's details, obtaining appropriate consent, and scheduling an initial assessment session.
+User Story 2.1: Young Person Referral
+As a Referring Organization
+I want to input a young person's details and secure sessions for them
+So they can begin receiving mental health support
+Acceptance Criteria:
+The referral form captures essential information: name, contact details, and any scheduling constraints
+The system verifies sufficient session availability (minimum 12) before proceeding
+Successful referrals automatically ringfence 12 sessions for the young person
+Referrers receive confirmation when the referral is processed successfully
+The system automatically flags any duplicate referrals based on name and contact details
+Assumptions:
+Referring organizations will have obtained initial permission to share the young person's details
+The referral organization may be different from the purchasing organization
+The system must support referrals from schools that haven't directly purchased the sessions
+Referrers need confirmation that the referral has been received and sessions ringfenced
+Duplicate checking is essential to prevent multiple referrals for the same young person
+User Story 2.2: Consent Management
+As the System
+I want to obtain and record appropriate consent from young people
+So that therapy can proceed in compliance with ethical and legal requirements
+Acceptance Criteria:
+Upon referral, an automated consent request is sent to the young person
+Therapy sessions cannot proceed until consent is confirmed
+All consent actions are logged with timestamps for audit purposes
+The system provides clear documentation of what the young person is consenting to
+Assumptions:
+Digital consent is legally sufficient for this service when properly implemented
+Young people can choose their preferred communication method for consent requests
+Consent records must be maintained in the system
+User Story 2.3: Initial Session Scheduling
+As the System
+I want to automatically schedule the first assessment session
+So that the therapy process can begin promptly after consent
+Acceptance Criteria:
+The therapist proposes an initial assessment time
+Young people can accept the proposed time or request alternatives through a simple response mechanism
+Upon confirmation, session details are automatically communicated to both the therapist and the young person
+The system logs the scheduled assessment in the therapist's calendar to prevent double-booking
+The system sends appropriate reminders before the initial assessment
+Assumptions:
+Assessment is counted as session 1 of the 12 allocated sessions
+The initial assessment will determine the pattern for subsequent sessions
+Confirmation and reminders must be sent via the young person's preferred communication method
+Automated scheduling reduces administrative burden while maintaining flexibility for rescheduling

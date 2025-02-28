@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCS Therapy Session Management</title>
+    <title>TCS Session Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,100 +12,44 @@
             <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
             <h1>Session Management Portal</h1>
         </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="organizations.html">Organizations</a></li>
+                <li><a href="sessions.html">Sessions</a></li>
+                <li><a href="referrals.html">Referrals</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
+        <div class="welcome-section">
+            <h2>Welcome to TCS Session Management</h2>
+            <p>Select a management area to begin:</p>
+        </div>
+        
         <div class="dashboard-grid">
-            <!-- Organization Management Panel -->
-            <section class="panel">
-                <div class="panel-header">
-                    <h2>Organization Management</h2>
+            <a href="organizations.html" class="feature-card">
+                <div class="feature-content">
+                    <h3>Organization Management</h3>
+                    <p>Create and manage organizations, track session allocations</p>
                 </div>
-                <div class="panel-content">
-                    <form id="orgForm" class="tcs-form">
-                        <div class="form-group">
-                            <label for="orgName">Organization Name</label>
-                            <input type="text" id="orgName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="orgType">Organization Type</label>
-                            <select id="orgType" required>
-                                <option value="purchaser">Session Purchaser</option>
-                                <option value="referrer">Referrer Only</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="sessionCount">Total Sessions Purchased</label>
-                            <input type="number" id="sessionCount" min="12" step="12" required>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Create Organization</button>
-                        </div>
-                    </form>
+            </a>
 
-                    <div class="organizations-list">
-                        <h3>Active Organizations</h3>
-                        <div id="orgListContent" class="list-content"></div>
-                    </div>
+            <a href="sessions.html" class="feature-card">
+                <div class="feature-content">
+                    <h3>Session Management</h3>
+                    <p>Monitor active sessions, view audit logs, track usage</p>
                 </div>
-            </section>
+            </a>
 
-            <!-- Session Management Panel -->
-            <section class="panel">
-                <div class="panel-header">
-                    <h2>Session Management</h2>
+            <a href="referrals.html" class="feature-card">
+                <div class="feature-content">
+                    <h3>Referral Management</h3>
+                    <p>Create new referrals, manage young person assignments</p>
                 </div>
-                <div class="panel-content">
-                    <div class="session-stats">
-                        <div class="stat-card">
-                            <span class="stat-label">Total Active Sessions</span>
-                            <span id="totalActiveSessions" class="stat-value">0</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-label">Reserved Sessions</span>
-                            <span id="reservedSessions" class="stat-value">0</span>
-                        </div>
-                    </div>
-                    <div class="session-actions">
-                        <button id="viewAuditLog" class="btn btn-secondary">View Audit Log</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Referral Panel -->
-            <section class="panel">
-                <div class="panel-header">
-                    <h2>New Referral</h2>
-                </div>
-                <div class="panel-content">
-                    <form id="referralForm" class="tcs-form">
-                        <div class="form-group">
-                            <label for="orgSelect">Referring Organization</label>
-                            <select id="orgSelect" required></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="ypName">Young Person's Name</label>
-                            <input type="text" id="ypName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ypEmail">Contact Email</label>
-                            <input type="email" id="ypEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ypPhone">Contact Phone</label>
-                            <input type="tel" id="ypPhone" required>
-                        </div>
-                        <div class="form-info">
-                            <p>This referral will automatically reserve 12 sessions</p>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Submit Referral</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+            </a>
         </div>
     </main>
-    <script src="script.js"></script>
 </body>
 </html> 
