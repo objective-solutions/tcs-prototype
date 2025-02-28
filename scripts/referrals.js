@@ -60,8 +60,29 @@ class ReferralManager {
     }
 
     async sendConsentRequest(referral) {
+        const consentLink = `${window.location.origin}/consent.html?id=${referral.id}`;
+        
+        const message = {
+            to: referral.preferredContact === 'email' ? referral.email : referral.phone,
+            method: referral.preferredContact,
+            subject: 'Therapy Consent Required',
+            content: `
+                Dear ${referral.name},
+                
+                You have been referred for therapy sessions with The Children's Society.
+                Please review and provide your consent using the link below:
+                
+                ${consentLink}
+                
+                This link is unique to you and should not be shared.
+                
+                Best regards,
+                The Children's Society
+            `
+        };
+
         // In a real implementation, this would send an actual email/SMS
-        console.log(`Sending consent request to ${referral.name} via ${referral.preferredContact}`);
+        console.log('Sending consent request:', message);
         
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -120,24 +141,37 @@ class ReferralManager {
     }
 
     getReferralActions(referral) {
+        let actions = '';
+        
         switch (referral.status) {
             case 'pending':
-                return `
+                actions = `
                     <button class="btn btn-secondary referral-action" 
                             data-action="resend-consent" 
                             data-referral-id="${referral.id}">
-                        Resend Consent Request
-                    </button>`;
+                        Resend Consent
+                    </button>
+                `;
+                break;
             case 'consented':
-                return `
-                    <button class="btn btn-primary referral-action" 
-                            data-action="schedule" 
-                            data-referral-id="${referral.id}">
-                        Schedule Assessment
-                    </button>`;
-            default:
-                return '';
+                actions = `
+                    <a href="scheduling.html?referral=${referral.id}" 
+                       class="btn btn-primary">
+                        Schedule Session
+                    </a>
+                `;
+                break;
+            case 'scheduled':
+                actions = `
+                    <a href="scheduling.html?referral=${referral.id}" 
+                       class="btn btn-secondary">
+                        View/Modify Schedule
+                    </a>
+                `;
+                break;
         }
+        
+        return actions;
     }
 
     async handleReferralAction(action, referralId) {

@@ -19,6 +19,16 @@ class SessionManager {
 
     updateUI() {
         this.updateSessionStats();
+        
+        // Add scheduling button
+        const actionsDiv = document.querySelector('.session-actions');
+        if (actionsDiv) {
+            actionsDiv.innerHTML += `
+                <a href="scheduling.html" class="btn btn-primary">
+                    Manage Schedule
+                </a>
+            `;
+        }
     }
 
     updateSessionStats() {

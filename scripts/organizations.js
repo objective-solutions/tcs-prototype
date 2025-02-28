@@ -37,7 +37,7 @@ class OrganizationManager {
             // Use the new addOrganization method
             this.state.addOrganization(organization);
 
-            // Update UI
+            // Update 
             form.reset();
             this.updateUI();
             this.showSuccess('Organization created successfully');

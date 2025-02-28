@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy Consent - TCS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
+            <h1>Therapy Consent Form</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Consent Details</h2>
+            </div>
+            <div class="panel-content">
+                <div class="consent-form">
+                    <div class="consent-section">
+                        <h3>Service Overview</h3>
+                        <p>You are being offered 12 therapy sessions through The Children's Society. These sessions will:</p>
+                        <ul>
+                            <li>Be 50 minutes long</li>
+                            <li>Take place online via secure video call</li>
+                            <li>Be scheduled at times that work for you</li>
+                            <li>Be completely confidential</li>
+                        </ul>
+                    </div>
+
+                    <div class="consent-section">
+                        <h3>Data Protection</h3>
+                        <p>Your personal information will be handled securely and confidentially. We will:</p>
+                        <ul>
+                            <li>Keep your information safe and private</li>
+                            <li>Only share information if required by law</li>
+                            <li>Delete unnecessary data when no longer needed</li>
+                            <li>Give you access to your information upon request</li>
+                        </ul>
+                    </div>
+
+                    <div class="consent-section">
+                        <h3>Your Rights</h3>
+                        <p>You have the right to:</p>
+                        <ul>
+                            <li>Withdraw consent at any time</li>
+                            <li>Request your data be deleted</li>
+                            <li>Access your therapy records</li>
+                            <li>Choose how we contact you</li>
+                        </ul>
+                    </div>
+
+                    <div class="consent-actions">
+                        <button id="declineBtn" class="btn btn-secondary">I Do Not Consent</button>
+                        <button id="consentBtn" class="btn btn-primary">I Consent</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/shared/state.js"></script>
+    <script src="scripts/consent.js"></script>
+</body>
+</html> 

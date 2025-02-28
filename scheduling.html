@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Scheduling - TCS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="./logo.svg" alt="The Children's Society Logo" class="logo">
+            <h1>Session Scheduling</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="organizations.html">Organizations</a></li>
+                <li><a href="sessions.html">Sessions</a></li>
+                <li><a href="referrals.html">Referrals</a></li>
+                <li><a href="scheduling.html" class="active">Scheduling</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container scheduling-container">
+        <!-- Therapist Availability Panel -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Manage Availability</h2>
+            </div>
+            <div class="panel-content">
+                <form id="availabilityForm" class="tcs-form">
+                    <div class="form-group">
+                        <label for="daySelect">Day of Week</label>
+                        <select id="daySelect" required>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Start Time</label>
+                        <input type="time" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Set Availability</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Block Time Panel -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Block Time Off</h2>
+            </div>
+            <div class="panel-content">
+                <form id="blockTimeForm" class="tcs-form">
+                    <div class="form-group">
+                        <label for="blockStartDate">Start Date</label>
+                        <input type="date" id="blockStartDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blockStartTime">Start Time</label>
+                        <input type="time" id="blockStartTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blockEndDate">End Date</label>
+                        <input type="date" id="blockEndDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blockEndTime">End Time</label>
+                        <input type="time" id="blockEndTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blockReason">Reason</label>
+                        <select id="blockReason" required>
+                            <option value="holiday">Holiday</option>
+                            <option value="training">Training</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Block Time</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Calendar Panel -->
+        <section class="panel calendar-panel">
+            <div class="panel-header">
+                <h2>Schedule View</h2>
+                <div class="calendar-nav">
+                    <button id="prevWeek" class="btn btn-secondary">&lt; Previous</button>
+                    <span id="currentWeek"></span>
+                    <button id="nextWeek" class="btn btn-secondary">Next &gt;</button>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Appointment Modal Template -->
+    <template id="appointmentModalTemplate">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Schedule Session</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointmentForm" class="tcs-form">
+                    <div class="form-group">
+                        <label for="referralSelect">Young Person</label>
+                        <select id="referralSelect" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sessionType">Session Type</label>
+                        <select id="sessionType" required>
+                            <option value="assessment">Initial Assessment</option>
+                            <option value="therapy">Therapy Session</option>
+                        </select>
+                    </div>
+                    <div class="slot-info">
+                        <p><strong>Date:</strong> <span id="slotDate"></span></p>
+                        <p><strong>Time:</strong> <span id="slotTime"></span></p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Schedule Session</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <script src="scripts/shared/state.js"></script>
+    <script src="scripts/shared/therapist.js"></script>
+    <script src="scripts/scheduling.js"></script>
+</body>
+</html> 

@@ -1,0 +1,66 @@
+EPIC 3: SESSION SCHEDULING & AVAILABILITY
+Context: After the initial assessment, subsequent therapy sessions need to be scheduled manually by the therapist, taking into account various constraints.
+User Story 3.1: Manual Session Scheduling
+As a Therapist
+I want to schedule subsequent therapy sessions
+So that both the young person and I can agree on suitable times
+Acceptance Criteria:
+The therapist can access a scheduling interface after sessions
+The system displays the therapist's availability within the platform
+Young people do not need to log in to confirm appointments; the therapist finalizes the booking
+The system sends automated confirmation messages to young people after scheduling
+The system supports recurring appointments if needed
+Assumptions:
+Therapists will handle scheduling during therapy sessions while the young person is present
+Young people don't need a system login, with communication happening via email/SMS links
+TCS will provide a SMTP server for the emails
+TCS will provide an SMS service for the SMS messages
+The scheduling interface needs to be simple and efficient for therapists to use during sessions
+User Story 3.2: Therapist Availability Management
+As a Therapist
+I want to manage my availability within the system
+So that I'm not double-booked across different young people
+Acceptance Criteria:
+The system maintains a calendar of each therapist's appointments
+When scheduling, the system prevents booking conflicts for the same therapist
+Therapists can block out periods when they are unavailable for sessions
+The system does not require integration with external calendars (Google, Outlook)
+Therapists can set recurring availability patterns (e.g., only available Tuesday-Thursday)
+The calls will be scheduled for an hour, with 50 minutes of the therapy session and 10 minutes left to schedule the next call. The control of this is done by the therapist, who will be very used to keeping times of sessions
+Assumptions:
+Therapists need to block out unavailable times and see their full schedule within the platform
+EPIC 4: COMMUNICATIONS & SCHEDULING CHANGES
+Context: Young people need to receive appointment reminders and have mechanisms to request changes without requiring system login.
+User Story 4.1: Appointment Reminders
+As a Young Person
+I want to receive automated reminders about upcoming sessions
+So that I don't miss my appointments
+Acceptance Criteria:
+The system sends confirmation messages immediately after booking a session
+Reminder messages are sent the day before scheduled sessions
+Messages include essential details: date, time, therapist name, and session link
+Young people can choose their preferred communication method (email or SMS)
+Communications are appropriately branded according to TCS guidelines
+Reminder timing is configurable within the system administration
+Assumptions:
+Young people will specify their preferred communication method (email/SMS) during initial consent
+Reminders will be sent both when the appointment is booked and the day before the session
+Communications must be appropriately branded (TCS or co-branded depending on the referring organization)
+The platform should track the delivery status of communications to identify potential issues
+User Story 4.2: Scheduling Therapist-initiated Changes
+As a Therapist
+I want to cancel or reschedule sessions when necessary
+So that young people are promptly informed of any changes
+Acceptance Criteria:
+Therapists can cancel sessions through the system, triggering automated notifications
+Canceled sessions do not count against the young person's session allocation
+The system facilitates proposing alternative times when cancellations occur
+All cancellations and changes are logged for reporting purposes
+The system distinguishes between different cancellation reasons (therapist unavailability, technical issues, etc.)
+Cancellations made within 24 hours of the session are flagged in reporting
+Assumptions:
+Therapist-initiated cancellations should not count against the young person's 12-session allocation
+The system must differentiate between therapist cancellations and young person no-shows
+Notifications of cancellations must be immediate and via the young person's preferred method
+Rescheduling should be streamlined to minimize disruption to the therapeutic relationship
+Reporting on cancellation patterns is important for service quality monitoring

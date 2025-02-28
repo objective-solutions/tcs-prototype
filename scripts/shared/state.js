@@ -4,6 +4,8 @@ class AppState {
         this.organizations = this.loadFromStorage('organizations') || [];
         this.referrals = this.loadFromStorage('referrals') || [];
         this.auditLog = this.loadFromStorage('auditLog') || [];
+        this.appointments = this.loadFromStorage('appointments') || [];
+        this.therapists = this.loadFromStorage('therapists') || [];
         
         // Restore methods to organizations after loading from storage
         this.organizations.forEach(this.addOrganizationMethods);
@@ -126,6 +128,21 @@ class AppState {
             this.reservedSessions += count;
             return true;
         };
+    }
+
+    addAppointment(appointment) {
+        this.appointments.push(appointment);
+        this.saveToStorage('appointments', this.appointments);
+        this.addAuditLog('CREATE_APPOINTMENT', appointment);
+    }
+
+    updateAppointment(appointment) {
+        const index = this.appointments.findIndex(a => a.id === appointment.id);
+        if (index === -1) throw new Error('Appointment not found');
+
+        this.appointments[index] = appointment;
+        this.saveToStorage('appointments', this.appointments);
+        this.addAuditLog('UPDATE_APPOINTMENT', appointment);
     }
 }
 
